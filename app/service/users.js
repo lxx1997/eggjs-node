@@ -3,11 +3,9 @@ const Service = require('egg').Service;
 class UserService extends Service {
   async getUserInfo({ id }) {
     const { app, ctx } = this;
-    console.log(id);
     try {
       const result = await app.mysql.select('eic-user', { where: { id } });
-      console.log(result, id);
-      return result;
+      return result[0];
     } catch (error) {
       ctx.body = {
         code: 500,

@@ -48,6 +48,10 @@ module.exports = appInfo => {
       enable: false,
     },
   };
+  config.cors = {
+    origin: '*',
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH,OPTIONS',
+  };
   // add your middleware config here
   config.middleware = [ 'jwt' ];
 

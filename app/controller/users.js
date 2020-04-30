@@ -23,13 +23,13 @@ class UserController extends Controller {
     // 保存token到redis里面
     await ctx.service.users.setTokenRedis({ username, userId, token });
     ctx.body = {
+      code: 200,
       data: {
         token,
         expires: this.config.login_token_time,
         username,
         password,
       },
-      code: 200,
       msg: '登录成功',
     };
   }
@@ -39,11 +39,10 @@ class UserController extends Controller {
     const username = ctx.request.query.username;
     const password = ctx.request.query.password;
     const userInsert = await ctx.service.users.register({ username, password });
-    console.log(userInsert);
     const userInfo = await ctx.service.users.getUserInfo({ id: userInsert.insertId });
     ctx.body = {
       code: 200,
-      msg: userInfo,
+      data: userInfo,
     };
   }
   // 获取用户列表 分页
@@ -53,10 +52,13 @@ class UserController extends Controller {
     const pageSize = ctx.request.query.userPage || 20;
     const pageList = await ctx.service.users.getUserPage({ page, pageSize });
     ctx.body = {
-      page,
-      pageSize,
-      data: pageList.list,
-      total: pageList.total,
+      code: 200,
+      data: {
+        page,
+        pageSize,
+        data: pageList.list,
+        total: pageList.total,
+      },
     };
   }
 }
