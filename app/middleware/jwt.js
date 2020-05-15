@@ -23,13 +23,13 @@ module.exports = (options, app) => {
             await next();
           } else {
             ctx.body = {
-              code: 500,
+              code: 401,
               msg: '你的账户在其他地方已登录',
             };
           }
         } else {
           ctx.body = {
-            code: 50012,
+            code: 401,
             msg: '登录状态已过期',
           };
         }
@@ -41,7 +41,7 @@ module.exports = (options, app) => {
       }
     } else {
       ctx.body = {
-        code: 50012,
+        code: 401,
         msg: '请登录后操作',
       };
     }

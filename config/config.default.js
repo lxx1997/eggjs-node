@@ -34,6 +34,12 @@ module.exports = appInfo => {
       db: 0,
     },
   };
+  // 配置上传
+  config.multipart = {
+    fileSize: '50mb',
+    mode: 'stream',
+    fileExtensions: [ '.xls', '.txt' ], // 扩展几种上传的文件格式
+  };
   config.mysql = {
     client: {
       host: 'localhost',
