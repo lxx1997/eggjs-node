@@ -35,7 +35,7 @@ module.exports = {
   createUser(id) {
     return {
       create_by: id,
-      create_date: Date(),
+      create_date: Date().toLocaleString(),
     };
   },
 };

@@ -5,6 +5,8 @@
  */
 module.exports = app => {
   const { router, controller } = app;
+  // resource 接口实例
+  router.resources('eg', 'api/v1/egs', controller.egs);
   // 登录接口， 获取token
   router.get('/api/v1/login', controller.users.setUserToken);
   router.get('/api/v1/register', controller.users.userRegister);
@@ -17,4 +19,8 @@ module.exports = app => {
 
   //  上传文件
   router.post('/api/v1/files', controller.files.uploadFile);
+  //  下载文件
+  router.post('/api/v1/files/:id', controller.files.uploadFile);
+  // 创建novel的增删改查接口
+  router.resources('novels', 'api/v1/novels', controller.novels);
 };
