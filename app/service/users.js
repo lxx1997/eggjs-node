@@ -71,7 +71,6 @@ class UserService extends Service {
   async getUserPage({ page, pageSize }) {
     const { ctx, app } = this;
     try {
-      console.log(page, pageSize);
       const list = await app.mysql.query('select * from `eic-egg`.`eic-user` limit ?, ?', [ (page - 1) * pageSize, page * pageSize ]);
       const total = await app.mysql.query('select count(id) as count from `eic-egg`.`eic-user`', '');
       return { list, total: total[0].count };

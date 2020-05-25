@@ -47,6 +47,7 @@ module.exports = appInfo => {
       user: 'root',
       password: '123456',
       database: 'eic-egg',
+      debug: false,
     },
   };
   config.security = {

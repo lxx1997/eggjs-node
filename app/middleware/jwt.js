@@ -9,7 +9,6 @@ module.exports = (options, app) => {
     if (authToken) {
       try {
         const res = verifyToken(authToken);
-        console.log(res);
         if (res.userId && res.username) {
         // 如果需要限制单端登录或者使用过程中废止某个token， 或者更改token的权限，也就是一旦JWT签发了，到期之前就会始终有效
         // 此处使用redis进行保存
@@ -55,7 +54,6 @@ module.exports = (options, app) => {
         res = result.data || {};
       }
     } catch (error) {
-      console.log(error);
       throw (error);
     }
     return res;

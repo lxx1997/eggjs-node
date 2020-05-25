@@ -38,7 +38,6 @@ class NovelsService extends Service {
   // 查询当前登录人的小说 novel
   async searchNovel(body) {
     const { app, ctx } = this;
-    console.log(app, ctx, body);
   }
 }
 

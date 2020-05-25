@@ -21,7 +21,6 @@ class FilesController extends Controller {
     const serverPath = `/public/avator/${Date.now()}.${suffix}`;
     try {
       const result = await ctx.service.files.uploadFile({ name, suffix, path: serverPath, size });
-      console.log(result);
       if (result) {
         const file = await ctx.service.files.getFileDetail(result.insertId);
         const writeStream = fs.createWriteStream(path);

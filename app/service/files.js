@@ -14,7 +14,6 @@ class FilesService extends Service {
         path,
         ...ctx.helper.createUser(userid),
       };
-      console.log(insertData);
       const result = await app.mysql.insert('eic-file', { ...insertData });
       return result;
     } catch (error) {

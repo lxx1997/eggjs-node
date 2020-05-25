@@ -26,7 +26,6 @@ module.exports = {
         res = result.data || {};
       }
     } catch (error) {
-      console.log(error);
       throw (error);
     }
     return res;

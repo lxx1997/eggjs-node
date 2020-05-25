@@ -9,7 +9,6 @@ class UserController extends Controller {
     const username = ctx.request.query.username;
     const password = ctx.request.query.password;
     const loginUser = await ctx.service.users.getMyInfo({ username });
-    console.log(username, password, loginUser);
     if (username === loginUser.username && password === loginUser.password) {
       const userId = await ctx.service.users.getUserId(username);
       // 设置token， 传递用户的用户名和用户id
@@ -104,7 +103,6 @@ class UserController extends Controller {
     const { ctx } = this;
     const userId = await ctx.service.users.userId();
     const result = await ctx.service.users.getUserInfo(userId);
-    console.log(userId, result);
     ctx.body = {
       code: 200,
       data: result,

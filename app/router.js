@@ -23,4 +23,6 @@ module.exports = app => {
   router.post('/api/v1/files/:id', controller.files.uploadFile);
   // 创建novel的增删改查接口
   router.resources('novels', 'api/v1/novels', controller.novels);
+  // chapter 的增删改查接口
+  router.resources('chapters', 'api/v1/chapters', controller.chapters);
 };
