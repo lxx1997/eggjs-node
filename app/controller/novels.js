@@ -2,6 +2,9 @@
 
 const Controller = require('egg').Controller;
 
+/**
+ * @Controller 小说
+ */
 class NovelsController extends Controller {
   // 创建数据
   async create() {

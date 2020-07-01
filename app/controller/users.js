@@ -2,8 +2,12 @@
 
 const Controller = require('egg').Controller;
 
+/**
+ * @Controller user
+ */
 class UserController extends Controller {
-  // 用户登录 并返回token
+
+
   async setUserToken() {
     const { ctx } = this;
     const username = ctx.request.query.username;

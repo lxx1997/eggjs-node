@@ -22,6 +22,14 @@ class EgsController extends Controller {
     const { ctx } = this;
     this.ctx.body = '查询';
   }
+  /**
+   * @Summary 创建资源
+   * @Router POST /resource2
+   * @Request body createResource *body resourceInfo
+   * @Request header string access_token
+   * @Response 200 baseResponse
+   */
+
   async index() {
     // eslint-disable-next-line no-unused-vars
     const { ctx } = this;

@@ -23,4 +23,8 @@ module.exports = {
     enable: true,
     package: 'egg-cors',
   },
+  swaggerdoc: {
+    enable: true,
+    package: 'egg-swagger-doc-feat',
+  },
 };

@@ -24,7 +24,7 @@ module.exports = appInfo => {
   // 使用中间件
   config.jwt = {
     enable: true,
-    ignore: [ '/api/v1/login', '/public/', '/api/v1/register' ],
+    ignore: [ '/api/v1/login', '/public/', '/api/v1/register', '/swagger-ui.html', '/swagger-doc', '/swagger-ui.css', '/swagger-ui-bundle.js', '/swagger-ui-standalone-preset.js' ],
   };
   config.redis = {
     client: {
@@ -49,6 +49,23 @@ module.exports = appInfo => {
       database: 'eic-egg',
       debug: false,
     },
+  };
+  config.swaggerdoc = {
+    dirScanner: './app/controller',
+    apiInfo: {
+      title: 'djtao接口',
+      description: 'djtao接口 swagger-ui for egg', version: '1.0.0',
+    },
+    schemes: [
+      'http',
+      'https',
+    ],
+    consumes: [ 'application/json' ],
+    produces: [ 'application/json' ],
+    enableSecurity: false,
+    // enableValidate: true,
+    routerMap: true,
+    enable: true,
   };
   config.security = {
     csrf: {
